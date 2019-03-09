@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="UTF-8">
+		<title>Телефонная книга</title>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+<style>
+body {
+    background-image: url("/static/London.jpg");
+}
+</style>
+<style>
+/* как должно выглядеть слово над input */
+   label {
+    color: #FFFFFF; /* Цвет текста */
+    padding: 2px; /* Поля вокруг текста */
+   }
+  </style>
+
+	<style>
+	input {
+width: 213px;
+font-size: 13px;
+padding: 6px 0 4px 10px;
+border: 1px solid #cecece;
+background: #F6F6f6;
+border-radius: 8px;
+}
+	  </style>
+
+<style>
+/* как выглядит заголовок "Телефонная книга" */
+   h1 {
+    color: #E6E6FA; /* Цвет текста */
+    padding: 2px; /* Поля вокруг текста */
+   }
+  </style>
+	<style>
+	a.button1 {
+	  display: inline-block;
+
+	  color: #fff;
+	  text-decoration: none;
+	  text-shadow: 0 -1px rgba(0,0,0,.5);
+	  user-select: none;
+	  padding: .7em 1.5em;
+	  border: 1px solid rgb(80,32,0);
+	  border-radius: 5px;
+	  outline: none;
+	  background: rgb(147,80,36) linear-gradient(rgb(106,58,26), rgb(147,80,36) 80%);
+	  box-shadow:
+	   0 6px rgb(86,38,6),
+	   0 3px 15px rgba(0,0,0,.4),
+	   inset 0 1px rgba(255,255,255,.3),
+	   inset 0 0 3px rgba(255,255,255,.5);
+	  transition: .2s;
+	}
+	.button1:hover {
+	  background: rgb(167,91,41) linear-gradient(rgb(126,69,31), rgb(167,91,41) 80%);
+	}
+	.button1:active {
+	  background: rgb(120,63,25) linear-gradient(rgb(120,63,25) 20%, rgb(167,91,41));
+	  box-shadow:
+	   0 2px rgb(86,38,6),
+	   0 1px 6px rgba(0,0,0,.4),
+	   inset 0 1px rgba(255,255,255,.3),
+	   inset 0 0 3px rgba(255,255,255,.5);
+	  -webkit-transform: translate(0, 4px);
+	  transform: translate(0, 4px);
+	}
+</style>
+</head>
+	<!-- <body bgcolor="#FFB700" style=”background-image: url(‘London.jpg’)”> -->
+	<!-- <body style="background: "London.jpg""> -->
+	<body>
+    <!-- добавляются стили:jumbotron - блок становится на весь экран и серырый, container - инфа по середине -->
+      <h1 align="center">Телефонная книга</h1>
+			<p>
+				<a>''</a>
+			</p>
+
+
+      <p align="center">
+        <a href="/add" class="button1">Добавление</a>
+        <a href="/delete" class="button1">Удаление</a>
+        <a href="/redact" class="button1">Редактирование</a>
+        <a href="/find" class="button1">Поиск</a>
+			</p>
+			<p>
+        <a>'</a>
+      </p>
+
+	{% block content %}
+	{% endblock %}
+	</body>
+</html>
