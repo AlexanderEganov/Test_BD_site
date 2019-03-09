@@ -1,0 +1,129 @@
+{% extends "wrapper_find.html" %}
+
+{% block content %}
+<fieldset>
+ <form action="" id="auth" method = "post"> {% csrf_token %}
+
+    <table border="0", width="100%", align="center">
+   <tr style=\"font-weight: bold;\",>
+   <td align="center">
+    <label>ФИО:<input name="FIO" id="auth" type="text" placeholder="Введите ФИО" class="validate"></label>
+    </td>
+    <td align="center">
+    <label>Пол:<input name="Gender" id="auth" list="cocktail" placeholder="Выбор"></label>
+      <datalist id="cocktail">
+       <option>Мужской</option>
+       <option>Женский</option>
+      </datalist>
+    </td>
+    <td align="center">
+    <label>Телефон:<input name="phone" id="auth" type="text" placeholder="Ведите номер" ></label>
+    </td>
+    <td align="center">
+    <label>E-mail:<input name="E-mail" id="auth" name="email" type="email" placeholder="Введите E-mail"></label>
+    </td>
+    <td align="center">
+    <label>Город:<input name="Adres_city" id="auth" list="city" placeholder="Введите адрес"></label>
+      <datalist id="city">
+        {% for Adres_city in adreses_city %}
+          <option>{{ Adres_city.city }}</option>
+        {% endfor %}
+      </datalist>
+    </td>
+    <td align="center">
+    <label>Улица:<input name="Adres_street" id="auth" list="street" placeholder="Введите адрес"></label>
+        <datalist id="street">
+          {% for Adres_street in adreses_street %}
+            <option>{{ Adres_street.street }}</option>
+          {% endfor %}
+        </datalist>
+    </td>
+    <td align="center">
+    <label>Место работы:<input name="Job_place_job" id="auth" list="place_job" placeholder="Введите место работы"></label>
+        <datalist id="place_job">
+          {% for job_place_job in jobs_places_jobs %}
+            <option>{{ job_place_job.place_job }}</option>
+          {% endfor %}
+        </datalist>
+    </td>
+    </tr>
+    <tr style=\"font-weight: bold;\">
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    <td align="center">
+    <label>Пост:<input name="Job_doljnost" id="auth" list="doljnost" placeholder="Введите должность"></label>
+        <datalist id="doljnost">
+          {% for job_doljnost in jobs_doljnosts %}
+            <option>{{ job_doljnost.doljnost }}</option>
+          {% endfor %}
+        </datalist>
+    </td>
+    </tr>
+    </table>
+
+  <style>
+    button.knopka {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 -1px rgba(0,0,0,.5);
+      user-select: none;
+      padding: .7em 1.5em;
+      border: 1px solid rgb(80,32,0);
+      border-radius: 5px;
+      outline: none;
+      background: rgb(147,80,36) linear-gradient(rgb(106,58,26), rgb(147,80,36) 80%);
+      box-shadow:
+       0 6px rgb(86,38,6),
+       0 3px 15px rgba(0,0,0,.4),
+       inset 0 1px rgba(255,255,255,.3),
+       inset 0 0 3px rgba(255,255,255,.5);
+      transition: .2s;
+    }
+    .knopka:hover {
+      background: rgb(167,91,41) linear-gradient(rgb(126,69,31), rgb(167,91,41) 80%);
+    }
+    .knopka:active {
+      background: rgb(120,63,25) linear-gradient(rgb(120,63,25) 20%, rgb(167,91,41));
+      box-shadow:
+       0 2px rgb(86,38,6),
+       0 1px 6px rgba(0,0,0,.4),
+       inset 0 1px rgba(255,255,255,.3),
+       inset 0 0 3px rgba(255,255,255,.5);
+      -webkit-transform: translate(0, 4px);
+      transform: translate(0, 4px);
+    }
+ </style>
+ <!-- <p><input type="submit" form="auth"></p> -->
+ <table   width="100%", align="center">
+ <tr align="center">
+   <td>
+    <button class="knopka">Поиск</button>
+    </td>
+   </tr>
+  </table>
+ </form>
+
+ <p>
+   <a>'</a>
+ </p>
+
+ <style>
+   table {border-collapse: collapse;}
+
+ table tr {solid #e8e9eb;}
+ </style>
+
+<table border="1", width="100%", align="center">
+<tr style=\"font-weight: bold;\", bgcolor="#CD853F"><td align="center"><b>ФИО</b><td align="center"><b>Пол</b></td><td align="center"><b>Tелефон</b></td><td align="center"><b>E-mail</b></td><td align="center"><b>Город</b></td><td align="center"><b>Улица</b></td><td align="center"><b>Место работы</b></td><td align="center"><b>Пост</b></td></tr>
+{% for contact in contacts %}
+   <tr class='success', bgcolor="#DEB887">
+     <td align="center">{{ contact.FIO }}</td><td align="center">{{ contact.gender }}</td><td align="center">{{ contact.phone }}</td><td align="center">{{ contact.Email }}</td><td align="center">{{ contact.city }}</td><td align="center">{{ contact.street }}</td><td align="center">{{ contact.place_job }}</td><td align="center">{{ contact.job }}</td>
+ </tr>
+   </tr>
+ {% endfor %}
+
+</table>
+
+{% endblock %}
