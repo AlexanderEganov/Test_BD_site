@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="UTF-8">
+		<title>Телефонная книга</title>
+		<style>
+   		body {
+				background: #c7b39b url(templates/London.jpg); /* Цвет фона и путь к файлу */
+    	  color: #fff; /* Цвет текста */
+   	    }
+   </style>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+	</head>
+	<body style="background: gold">
+
+    <!-- добавляются стили:jumbotron - блок становится на весь экран и серырый, container - инфа по середине -->
+    <div class="jumbotron">
+    <div class="container">
+      <h1>Телефонная книга</h1>
+
+      <p>
+        <a href="/add" class="btn btn-success btn-lg">Добавление</a>
+        <a href="/delete" class="btn btn-warning btn-lg">Удаление</a>
+        <a href="/redact" class="btn  btn-danger btn-lg">Редактирование</a>
+        <a href="/find" class="btn  btn-primary btn-lg">Поиск</a>
+        <a href="/" class="btn btn-purp btn-lg">Отображение списка всех контактов &raquo;</a>
+      </p>
+    </div>
+
+
+  </div>
+	{% block content %}
+	{% endblock %}
+	</body>
+</html>
