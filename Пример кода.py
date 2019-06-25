@@ -251,6 +251,7 @@ def find(request):
         if (a==0):
             print('Ниче не нашел')
         if (a==1):
+        # Пирамидка
             contacts = contact.objects.exclude(id=result[0])#запришутя все эл-ты класса контакт кроме тех, у которых id совпаадет с id первого элемента в result
         if (a==2):
             contacts = contact.objects.exclude(id=result[0]).exclude(id=result[1])
